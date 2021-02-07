@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-xs-10">
+    <app-shopping-edit></app-shopping-edit>
+    <hr>
+      <!-- wrap ingredients with paranthesis and ingredients again is an observable and add the async pipe will let the angular
+         subscribe to ingredients for us to manage and in the end therefore we can access the Ingredients -->
+    <ul class="list-group">
+      <a
+        class="list-group-item"
+        style="cursor: pointer"
+        *ngFor="let ingredient of (ingredients | async).ingredients; let i = index"
+        (click)="onEditItem(i)"
+      >
+        {{ ingredient.name }} ({{ ingredient.amount }})
+      </a>
+    </ul>
+  </div>
+</div>
